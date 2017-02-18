@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_customNotification"
+    android:layout_width="match_parent"
+    android:layout_height="62dp"
+    android:background="#a0000000"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/notification_logo_white" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="日事清"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="今日任务5个"
+                    android:textColor="#757272"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_schedule"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
+
+    <ImageView
+        android:layout_width="1dp"
+        android:layout_height="45dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/notification_line_black" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_inbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:drawablePadding="4dp"
+            android:drawableTop="@drawable/notification_inbox_white"
+            android:gravity="center_horizontal"
+            android:text="收纳箱"
+            android:textColor="#ffffff"
+
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/tv_addSchedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:drawablePadding="4dp"
+            android:drawableTop="@drawable/notification_schedule_white"
+            android:gravity="center_horizontal"
+            android:text="日程"
+            android:textColor="#ffffff"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/tv_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="4dp"
+            android:drawableTop="@drawable/notification_note_white"
+            android:gravity="center_horizontal"
+            android:text="笔记"
+            android:textColor="#ffffff"
+            android:textSize="10sp" />
+
+
+    </LinearLayout>
+
+</LinearLayout>
