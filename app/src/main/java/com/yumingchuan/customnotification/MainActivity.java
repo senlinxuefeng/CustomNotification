@@ -78,7 +78,6 @@ public class MainActivity extends Activity {
 
 
     /**
-     *
      * @return
      */
     private boolean isDarkNotificationBar() {
