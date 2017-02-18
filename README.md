@@ -3,7 +3,6 @@
 
 ![](https://github.com/senlinxuefeng/CustomNotification/raw/master/picture/custom_notification.png)<br>
 
-
 ###Developed By ywmingchuan@gmail.com
 
 
