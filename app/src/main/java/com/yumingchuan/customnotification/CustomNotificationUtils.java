@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import android.widget.FrameLayout;
 import android.widget.RemoteViews;
 import android.widget.TextView;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,10 +66,20 @@ public class CustomNotificationUtils {
 
 
         builder.setContent(remoteViews);
-        Intent intentSchedule = new Intent(mContext, OneActivity.class);
-        PendingIntent pendingIntentSchedule = PendingIntent.getActivity(mContext, 1, intentSchedule, 0);
+
+
+        Intent intentSchedule = new Intent("schedulePage", null, mContext.getApplicationContext(), CustomNotificationReceiver.class);
+        PendingIntent pendingIntentSchedule = PendingIntent.getBroadcast(mContext, 10, intentSchedule, 0);
         builder.setContentIntent(pendingIntentSchedule);
         remoteViews.setOnClickPendingIntent(R.id.tv_schedule, pendingIntentSchedule);
+//
+//
+//
+//
+//        Intent intentSchedule = new Intent(mContext, OneActivity.class);
+//        PendingIntent pendingIntentSchedule = PendingIntent.getActivity(mContext, 1, intentSchedule, 0);
+//        builder.setContentIntent(pendingIntentSchedule);
+//        remoteViews.setOnClickPendingIntent(R.id.tv_schedule, pendingIntentSchedule);
 
 
         Intent intentInbox = new Intent(mContext, TwoActivity.class);
@@ -223,5 +235,28 @@ public class CustomNotificationUtils {
             return true;
         }
         return false;
+    }
+
+
+    /**
+     * 关闭下拉通知栏
+     * <p>
+     * 需要添加权限：<uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+     *
+     * @param context
+     */
+    public void collapseStatusBar(Context context) {
+        try {
+            Object statusBarManager = context.getSystemService("statusbar");
+            Method collapse;
+            if (Build.VERSION.SDK_INT <= 16) {
+                collapse = statusBarManager.getClass().getMethod("collapse");
+            } else {
+                collapse = statusBarManager.getClass().getMethod("collapsePanels");
+            }
+            collapse.invoke(statusBarManager);
+        } catch (Exception localException) {
+            localException.printStackTrace();
+        }
     }
 }
